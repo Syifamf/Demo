@@ -23,7 +23,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id-student}")
-    public ResponseEntity<Student> getStudent(@PathVariable("id_student") String idStudent) throws NoSuchFieldException {
+    public ResponseEntity<Student> getStudent(@PathVariable("id-student") String idStudent) throws NoSuchFieldException {
         Student reponse =studentService.getStudent(idStudent);
         return ResponseEntity.ok(reponse);
     }
@@ -36,9 +36,9 @@ public class StudentController {
 
     @PutMapping("/edit")
     public ResponseEntity<Student> editStudent(@RequestParam("id-student") String idStudent,
-                                               @RequestParam("address") String address,
-                                               @RequestParam("name") String name) throws NoSuchFieldException {
-        Student student = studentService.editStudent(idStudent, address, name);
+                                               @RequestParam("name") String name,
+                                               @RequestParam("address") String address) throws NoSuchFieldException {
+        Student student = studentService.editStudent(idStudent, name, address);
         return ResponseEntity.ok(student);
     }
 
